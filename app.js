@@ -1,17 +1,15 @@
 
 const Gpio = require('onoff').Gpio;
 const reed = new Gpio(17, 'in', 'rising', { debounceTimeout: 10 });
-const tf = require('@tensorflow/tfjs');
+
 const { takePic } = require('./takePic');
-const { readImage } = require('./readImage');
 const { classifyImage } = require('./classifyImage');
 const { uploadToCloudinary } = require('./uploadToCloudinary');
 const { sendTextMessage } = require('./sendTextMessage');
+const { toggleLight } = require('./toggleLight');
 
 let lastState;
 let pause = false;
-
-
 
 setInterval(async () => {
     let state = reed.readSync();
@@ -38,22 +36,30 @@ setInterval(async () => {
 
 }, 100)
 
-
 const process = async () => {
+    let config;
     try {
-        let config = await takePic();
-        let cloudinaryResult = await uploadToCloudinary(config.output);
-        await sendTextMessage(cloudinaryResult.url);
-        let image = await readImage(config.output);
-        let prediction = await classifyImage(image);
-        console.log(prediction);
-        return prediction;
+        await toggleLight(1);
+
+        config = await takePic();
+
+        let {url} = await uploadToCloudinary(config.output);
+        
+        let res = await classifyImage(config.output);
+        
+        //find class with highest confidence
+        let atticPet = Object.keys(res).reduce((a, b) => res[a] > res[b] ? a : b);
+
+        await sendTextMessage(url, atticPet);
+        
+        console.log(atticPet);
+
     } catch (error) {
         console.log(error);
     } finally {
         pause = false;
+        toggleLight(0);
     }
 };
-
 
 

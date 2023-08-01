@@ -134,3 +134,6 @@ dist
 *.jpeg
 *.png
 *.gif
+
+#my teachable machine model
+/public/model

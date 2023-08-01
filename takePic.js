@@ -15,7 +15,8 @@ const takePic = (async (_) => {
 
         await libcamera.still(config);
         return config;
-    } catch (err) { console.log('takePic err', err); }
+    } catch (error) { return error }
 
 });
+
 exports.takePic = takePic;
