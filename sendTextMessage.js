@@ -17,7 +17,7 @@ const sendTextMessage = async (url, atticPet) => {
 };
 
 const buildTxtObj = (atticPet) => {
-    console.log('pet ', atticPet)
+
     let phone;
     let message;
     if(atticPet==='Betsie') {

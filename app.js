@@ -37,22 +37,25 @@ setInterval(async () => {
 }, 100)
 
 const process = async () => {
-    let config;
+    
     try {
         await toggleLight(1);
 
-        config = await takePic();
+        let config = await takePic();
 
         let {url} = await uploadToCloudinary(config.output);
         
         let res = await classifyImage(config.output);
-        
+        console.log(res);
         //find class with highest confidence
         let atticPet = Object.keys(res).reduce((a, b) => res[a] > res[b] ? a : b);
 
+        //check confidence < 85% set atticPet to Other
+        if(res[atticPet] < .85) atticPet='Other';
+
         await sendTextMessage(url, atticPet);
         
-        console.log(atticPet);
+        console.log(`${res[atticPet]} % chance you caught ${atticPet}`);
 
     } catch (error) {
         console.log(error);

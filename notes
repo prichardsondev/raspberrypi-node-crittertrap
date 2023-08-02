@@ -1,0 +1,12 @@
+Process
+    --->
+    |   - trap closes
+    |   - reed switch triggers
+    |   - turn on lamp
+    |   - snap pic
+    |   - turn off lamp
+    |   - tensorflow js classification
+    |   - if betsie the bunny - text me pic
+    |   - if ralph the rodent/undefined - text jaime pic
+    |   - relocate critter
+    <--- 
