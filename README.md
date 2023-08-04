@@ -2,7 +2,7 @@
 App will send text message with image when reed switch is closed
 
 #### Overview Video
-wip
+[Video](https://youtu.be/BctqOrvCoMQ)
 
 #### Parts  - not affiliate links find cheapest price
 - Trap
