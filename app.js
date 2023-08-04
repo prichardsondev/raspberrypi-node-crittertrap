@@ -2,6 +2,7 @@
 const Gpio = require('onoff').Gpio;
 const reed = new Gpio(17, 'in', 'rising', { debounceTimeout: 10 });
 
+//comment out what you don't want to do...
 const { takePic } = require('./takePic');
 const { classifyImage } = require('./classifyImage');
 const { uploadToCloudinary } = require('./uploadToCloudinary');
@@ -51,7 +52,7 @@ const process = async () => {
         let atticPet = Object.keys(res).reduce((a, b) => res[a] > res[b] ? a : b);
 
         //check confidence < 85% set atticPet to Other
-        if(res[atticPet] < .85) atticPet='Other';
+        if(res[atticPet] < .7) atticPet='Other';
 
         await sendTextMessage(url, atticPet);
         

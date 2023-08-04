@@ -37,8 +37,6 @@ async function classifyImage(imagePath) {
     for (let i = 0; i < labels.length; i++)
       predictionObject[labels[i]] = predictions[i];
 
-
-
     return predictionObject;
 
   } catch (error) {

@@ -1,12 +1,18 @@
-Process
-    --->
-    |   - trap closes
-    |   - reed switch triggers
-    |   - turn on lamp
-    |   - snap pic
-    |   - turn off lamp
-    |   - tensorflow js classification
-    |   - if betsie the bunny - text me pic
-    |   - if ralph the rodent/undefined - text jaime pic
-    |   - relocate critter
-    <--- 
+            Process
+                --->
+                |   - trap closes
+                |   - reed switch triggers
+                |   - turn on lamp
+                |   - snap pic
+                |   - turn off lamp
+                |   - upload pic to cloudinary
+                |   - tensorflowjs classification
+                |   - if betsie the bunny - twillio (txt) cloudinary url to me
+                |   - if ralph the rodent/undefined - txt to jaime -)
+                |   - relocate critter
+                <--- 
+
+
+
+
+PC -> VirutalBox -> Ubuntu -> VSCode -> RemoteSSH -> PI 4 Running C++ OpenCV

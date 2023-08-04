@@ -23,14 +23,17 @@ const buildTxtObj = (atticPet) => {
     if(atticPet==='Betsie') {
         phone = process.env.PHONE1;
         message = 'Save Betsie'
+        console.log('Paul messaged...')
     }
     else {
         phone = process.env.PHONE2;
         atticPet==='Ralph' ? message = 
             'Save Ralph' : message = 
                 'Not sure what we caught baby - good luck';
-    }
 
+        console.log('Jaime messaged... -)');
+    }
+    console.log()
     return {
         phone,
         message
