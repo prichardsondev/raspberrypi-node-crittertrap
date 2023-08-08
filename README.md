@@ -42,7 +42,7 @@ Attach Reed Swith and Optional Relay
 
 Install Nodejs
 ```
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 ```
 
@@ -57,10 +57,17 @@ cd raspberrypi-node-crittertrap
 ```
 
 Install node packages 
+Note you may have to rebuild tensorflow/tfjs-node using the following
+npm rebuild @tensorflow/tfjs-node --build-from-source
 ```
 npm i
 ```
 
+Note you may have to rebuild tensorflow/tfjs-node using the following
+I discuss this in the final video 
+```
+npm rebuild @tensorflow/tfjs-node --build-from-source
+```
 Create .env file 
 ```
 sudo mv .env.example .env

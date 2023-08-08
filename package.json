@@ -24,8 +24,8 @@
   "author": "paul richardson",
   "license": "ISC",
   "dependencies": {
-    "@tensorflow/tfjs": "^3.21.0",
-    "@tensorflow/tfjs-node": "^3.0",
+    "@tensorflow/tfjs": "^4.10.0",
+    "@tensorflow/tfjs-node": "^4.10.0",
     "cloudinary": "^1.37.3",
     "dotenv": "^16.3.1",
     "node-libcamera": "^1.0.6",
